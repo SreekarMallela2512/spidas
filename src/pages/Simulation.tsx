@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, CircuitBoard } from "lucide-react";
+import tinkercadCircuit from "@/assets/tinkercad-circuit.png";
 
 const Simulation = () => {
   return (
@@ -22,17 +23,15 @@ const Simulation = () => {
             <h2 className="text-2xl font-bold">Circuit Design</h2>
           </div>
           
-          <div className="aspect-video bg-muted rounded-lg mb-6 flex items-center justify-center">
-            <div className="text-center">
-              <CircuitBoard className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-              <p className="text-muted-foreground mb-4">
-                PIR Sensor Circuit Design - Click below to view the interactive simulation
-              </p>
-              <Button 
-                variant="outline" 
-                className="gap-2"
-                onClick={() => window.open('https://www.tinkercad.com/things/5edidkIFTjM-copy-of-pir/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=6IqMhbmHz4pFpBt4DepwtD-J9WYITM70LtDXIZzYIak', '_blank')}
-              >
+          <div className="relative aspect-video bg-muted rounded-lg mb-6 overflow-hidden group cursor-pointer"
+               onClick={() => window.open('https://www.tinkercad.com/things/5edidkIFTjM-copy-of-pir/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=6IqMhbmHz4pFpBt4DepwtD-J9WYITM70LtDXIZzYIak', '_blank')}>
+            <img 
+              src={tinkercadCircuit} 
+              alt="PIR Sensor Circuit Design in Tinkercad"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <Button variant="secondary" className="gap-2">
                 <ExternalLink className="w-4 h-4" />
                 Open in Tinkercad
               </Button>
